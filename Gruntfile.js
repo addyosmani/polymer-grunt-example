@@ -23,6 +23,15 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+
+        exec: {
+            vulcan: {
+              command: 'node tools/vulcanize/vulcan.js -i <%= yeoman.dist %>/index.html -o <%= yeoman.dist %>//build.html',
+              stdout: true,
+              stderr: true
+            }
+        },
+
         yeoman: yeomanConfig,
         watch: {
             coffee: {
@@ -318,6 +327,10 @@ module.exports = function (grunt) {
         ]);
     });
 
+    grunt.registerTask('wcbuild',[
+        'exec:vulcan'
+    ]);
+
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
@@ -326,7 +339,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'clean:dist',
+        /*'clean:dist',*/
         'useminPrepare',
         'concurrent:dist',
         'concat',
@@ -334,7 +347,8 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'rev',
-        'usemin'
+        'usemin',
+        'wcbuild' /* creates build.html */
     ]);
 
     grunt.registerTask('default', [
