@@ -45,6 +45,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/*.html',
                     '<%= yeoman.app %>/elements/*.html',
                     '<%= yeoman.app %>/lib-elements/*.html',
+                    '<%= yeoman.app %>/bower_components/*.html', /* REMOVE THIS*/
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -270,7 +271,10 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/*'
+                        'styles/fonts/*',
+                        'elements/*',
+                        'lib-elements/*',
+                        'bower_components/director/build/*' /* shouldnt need this */
                     ]
                 }, {
                     expand: true,
