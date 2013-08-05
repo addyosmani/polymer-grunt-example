@@ -1,7 +1,19 @@
-polymer-grunt-example
-=====================
-
 Polymer + Grunt
+======================
+
+```
+                                                             
+    ___      ___     //           _   __      ___      __    
+  //   ) ) //   ) ) // //   / / // ) )  ) ) //___) ) //  ) ) 
+ //___/ / //   / / // ((___/ / // / /  / / //       //       
+//       ((___/ / //      / / // / /  / / ((____   //        
+
+```
+
+Getting started
+======================
+
+`npm install && bower install`
 
 Supported commands
 ======================
@@ -20,7 +32,7 @@ Notes
 *  Simple `exec` of Vuncanizer tool via `grunt wcbuild`
 
 Todos
-=======================
+======================
 
 * Wrap Vulcanizer into a build task
 * Figure out a way to resolve dependency resolution issues for script tags/Bower components in HTML imports

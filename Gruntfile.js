@@ -24,6 +24,8 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
+        yeoman: yeomanConfig,
+
         exec: {
             vulcan: {
               command: 'node tools/vulcanize/vulcan.js -i <%= yeoman.dist %>/index.html -o <%= yeoman.dist %>//build.html',
@@ -32,7 +34,6 @@ module.exports = function (grunt) {
             }
         },
 
-        yeoman: yeomanConfig,
         watch: {
             coffee: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -52,9 +53,9 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/elements/*.html',
-                    '<%= yeoman.app %>/lib-elements/*.html',
-                    '<%= yeoman.app %>/bower_components/*.html', /* REMOVE THIS*/
+                    '<%= yeoman.app %>/elements/{,*/}*.{html,css}',
+                    '<%= yeoman.app %>/lib-elements/{,*/}*.{html,css}',
+                    '<%= yeoman.app %>/bower_components/*.html', 
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -352,7 +353,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
+        /*'jshint',*/
         'test',
         'build'
     ]);
